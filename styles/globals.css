@@ -64,12 +64,11 @@ canvas {
 }
 
 .buttons{
-  width: 70%;
+  width: 100%;
+  display: block;
   text-align: center;
-  display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin-left: 15%;
+  justify-content: center;
 }
 button {
   padding: 10px;
@@ -78,14 +77,16 @@ button {
   color: white;
   border:0px;
   font-weight: 300;
-  margin-top: 30px;
+  margin-top: 10px;
   padding: 1em 3em;
   background-size: 300% 300%;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   background-color: #f50057;
   font-family: 'Josefin Sans', sans-serif;
 }
-
+#clicker{
+  pointer-events: none;
+}
 button:hover {
   font: 30px;
   transform: scale(1.1);

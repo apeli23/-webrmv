@@ -35,7 +35,7 @@ export default async function handler(req, res) {
       res.status(500).json({ error: "Something wrong" });
     }
 
-    res.status(200).json(uploaded_url);
+    res.status(200).json({data:uploaded_url});
   }
   // res.status(200).json({ saved: uploaded_url });
 

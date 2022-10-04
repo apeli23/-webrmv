@@ -19,6 +19,8 @@ export default function Home() {
   const videoDownloadRef = useRef();
   const [model, setModel] = useState(null);
 
+  const [recordedvideo, setRecordedVideo] = useState(false);
+
   useEffect(() => {
     if (model) return;
     const start_time = Date.now() / 1000;
@@ -82,6 +84,7 @@ export default function Home() {
 
       // Save original video to cloudinary
       await readFile(blob).then((encoded_file) => {
+        setRecordedVideo(true);
         uploadVideo(encoded_file);
       });
 
@@ -184,7 +187,7 @@ export default function Home() {
         <div className="container">
           <div className="header">
             <h1 className="heading">
-                Remove character from webcam
+              Remove character from webcam
             </h1>
           </div>
           <div className="row">
@@ -203,17 +206,20 @@ export default function Home() {
             </div>
           </div>
           <div className="buttons">
+            <h3>STEP 1</h3>
             <button className="button" onClick={startCamHandler} ref={startBtn}>
               Start Webcam
-            </button>
+            </button><br />
+            <h3>STEP 2</h3>
             <button className="button" onClick={stopCamHandler} ref={closeBtn}>
               Close and upload original video
-            </button>
-            <button className="button">
-              <a ref={videoDownloadRef} href={videoUrl}>
-                Get Original video
-              </a>
-            </button>
+            </button><br />
+            {recordedvideo &&
+              <button className="button">
+                <a ref={videoDownloadRef} href={videoUrl}>
+                  Get Original video
+                </a>
+              </button>}
           </div>
         </div>
       )}
